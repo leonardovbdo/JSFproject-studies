@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+<h:head>
+	<h:body>
+		<h:form>
+			<h:outputText value="#{testeRequestBean.personagemSelecionado}" />
+			<br />
+			<h:outputText value="#{testeApplicationBean.categoriaList}" />
+
+			<br />
+			<h:commandButton
+				actionListener="#{testeRequestBean.selecionarPersonagem}"
+				value="Selecionar Personagem" />
+			<h:commandButton
+				actionListener="#{testeRequestBean.selecionarPersonagem}"
+				value="Selecionar Personagem Forward" action="request2" />
+			<h:commandButton
+				actionListener="#{testeRequestBean.selecionarPersonagem}"
+				value="Selecionar Personagem Redirect"
+				action="request2?faces-redirect=true" />
+			<h:commandButton
+				actionListener="#{testeApplicationBean.mudarLista}"
+				value="Mudar Categorias"/>
+		</h:form>
+	</h:body>
+</h:head>
+
+
+</html>

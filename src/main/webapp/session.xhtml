@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+<h:head>
+	<h:body>
+		<h:form>
+			<h:outputText value="Aqui é a session.xhtml" />
+			<br />
+			<h:outputText value="#{testeSessionBean.personagemSelecionado}" />
+			<br />
+			<h:outputText value="#{testeApplicationBean.categoriaList}" />
+
+			<br />
+			<h:commandButton
+				actionListener="#{testeSessionBean.selecionarPersonagem}"
+				value="Selecionar Personagem" />
+			<h:commandButton
+				actionListener="#{testeSessionBean.selecionarPersonagem}"
+				value="Selecionar Personagem Forward" action="session2" />
+			<h:commandButton
+				actionListener="#{testeSessionBean.selecionarPersonagem}"
+				value="Selecionar Personagem Redirect"
+				action="session2?faces-redirect=true" />
+			<h:commandButton action="#{testeSessionBean.logout}" value="Logout" />
+			<h:commandButton actionListener="#{testeApplicationBean.mudarLista}"
+				value="Mudar Categorias" />
+		</h:form>
+	</h:body>
+</h:head>
+
+
+</html>
