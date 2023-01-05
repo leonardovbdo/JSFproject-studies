@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" xmlns:o="http://omnifaces.org/ui"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+<h:head>
+
+</h:head>
+
+<h:body>
+	<o:form includeRequestParams="true">
+		<p:messages autoUpdate="true" />
+		<h:panelGrid columns="1">
+			<h:commandButton value="Property Action Listener"
+				action="#{comunicacaoTeste5Bean.execute}">
+				<f:setPropertyActionListener value="Tamyles"
+					target="#{comunicacaoTeste5Bean.nome}" />
+				<f:setPropertyActionListener value="Vilasboas"
+					target="#{comunicacaoTeste5Bean.sobrenome}" />
+				<f:setPropertyActionListener value="#{comunicacaoTeste5Bean.estudante}"
+					target="#{comunicacaoTeste5Bean.estudante2}" />
+			</h:commandButton>
+		</h:panelGrid>
+	</o:form>
+</h:body>
+</html>

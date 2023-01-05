@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" xmlns:o="http://omnifaces.org/ui"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+<h:head>
+
+</h:head>
+
+<!-- ESTUDO DE VALIDAÇÃO DE IGUALDADE DE SENHAS USANDO O VALIDATE EQUAL DO OMNIFACES -->
+
+<h:body>
+	<p:messages autoUpdate="true" />
+	<h:form>
+		<h:panelGrid columns="1">
+			<h:outputText value="Password" />
+			<h:inputText id="password" value="#{validationTesteBean.password}" required="true" requiredMessage="Type a password"/>
+			<h:outputText value="Password" />
+			<h:inputText id="confirm" required="true" requiredMessage="Confirm your password"/>
+			<o:validateEqual components="password confirm" message="PassWords are not identical"></o:validateEqual>
+			<h:commandButton value="Salvar" action="#{validationTesteBean.save}" />
+		</h:panelGrid>
+	</h:form>
+</h:body>
+</html>

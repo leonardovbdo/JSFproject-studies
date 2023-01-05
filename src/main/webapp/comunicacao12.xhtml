@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" xmlns:o="http://omnifaces.org/ui"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+<h:head>
+
+</h:head>
+<f:metadata>
+	<f:viewAction action="#{comunicacaoTeste12Bean.init}" />
+</f:metadata>
+
+<h:body>
+	<p:messages autoUpdate="true" />
+	<h:outputText value="#{comunicacaoTeste12Bean.estudante.nome}" />
+	<h:outputText value="#{comunicacaoTeste12Bean.estudante.sobrenome}" />
+	<h:form>
+		<h:inputText value="#{comunicacaoTeste12Bean.estudante2.nome}"
+			converter="javax.faces.Number" />
+		<h:commandButton value="Voltar"
+			action="comunicacao11?faces-redirect=true" immediate="true"/>
+	</h:form>
+</h:body>
+</html>

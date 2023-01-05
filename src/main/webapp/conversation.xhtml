@@ -28,7 +28,7 @@
 				actionListener="#{testeConversationBean.selecionarPersonagem}"
 				value="Selecionar Personagem Redirect"
 				action="conversation2?faces-redirect=true" />
-			<h:link outcome="conversation2" value="Vai para conversation 2" rendered="#{testeConversationBean.conversation.transient}">
+			<h:link outcome="conversation2" value="Vai para conversation 2">
 				<f:param name="cid" value="#{testeConversationBean.conversation.id}"/>
 			</h:link>
 			<h:commandButton

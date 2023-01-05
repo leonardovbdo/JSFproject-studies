@@ -9,11 +9,14 @@
 <h:head>
 	<h:body>
 		<h:form>
+			<h:outputText value="#{testeApplicationBean.categoriaList}" />
+			<br />
 			<h:outputText value="#{testeRequestBean.personagemSelecionado}" />
 			<br />
-			<h:outputText value="#{testeApplicationBean.categoriaList}" />
-
+			<!-- Só irá aparecer se o usuário tiver logado pelo login.xhtml -->
+			<h:outputText value="Usuário logado: #{loginBean.estudante.nome}" />
 			<br />
+
 			<h:commandButton
 				actionListener="#{testeRequestBean.selecionarPersonagem}"
 				value="Selecionar Personagem" />
@@ -24,9 +27,8 @@
 				actionListener="#{testeRequestBean.selecionarPersonagem}"
 				value="Selecionar Personagem Redirect"
 				action="request2?faces-redirect=true" />
-			<h:commandButton
-				actionListener="#{testeApplicationBean.mudarLista}"
-				value="Mudar Categorias"/>
+			<h:commandButton actionListener="#{testeApplicationBean.mudarLista}"
+				value="Mudar Categorias" />
 		</h:form>
 	</h:body>
 </h:head>

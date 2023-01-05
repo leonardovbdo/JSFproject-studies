@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" xmlns:o="http://omnifaces.org/ui"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+<h:head>
+
+</h:head>
+<f:metadata>
+	<f:viewAction action="#{dataTableTesteBean.init}" />
+</f:metadata>
+
+<!-- ESTUDO DE VALIDAÇÃO DE IGUALDADE DE SENHAS USANDO O VALIDATE EQUAL DO OMNIFACES -->
+
+<h:body>
+	<!-- IMPORTANDO ENUM DE TURNO DO ESTUDANTE -->
+	<p:importEnum type="com.mycompany.maratonajsf.model.enums.Turno"
+		var="turno" allSuffix="ALL_ENUM_VALUES" />
+	<!-- IMPORTANDO ENUM DE TURNO DO ESTUDANTE -->
+	<p:messages autoUpdate="true" />
+	<h:form>
+		<h2>TABLE USANDO LIST</h2>
+		<h:dataTable value="#{dataTableTesteBean.estudanteList}"
+			var="estudante">
+			<h:column>
+				<f:facet name="header">
+					<h:commandLink
+						actionListener="#{dataTableTesteBean.orderByNome('asc')}">
+						Nome asc
+					</h:commandLink>
+					<h:commandLink
+						actionListener="#{dataTableTesteBean.orderByNome('desc')}">
+						Nome desc
+					</h:commandLink>
+				</f:facet>
+				<h:outputText value="#{estudante.nome}"
+					rendered="#{not estudante.editing}" />
+				<h:inputText value="#{estudante.nome}"
+					rendered="#{estudante.editing}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:commandLink
+						actionListener="#{dataTableTesteBean.orderBySobrenome('asc')}">
+						Sobrenome asc
+					</h:commandLink>
+					<h:commandLink
+						actionListener="#{dataTableTesteBean.orderBySobrenome('desc')}">
+						Sobrenome desc
+					</h:commandLink>
+				</f:facet>
+				<h:outputText value="#{estudante.sobrenome}"
+					rendered="#{not estudante.editing}" />
+				<h:inputText value="#{estudante.sobrenome}"
+					rendered="#{estudante.editing}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Turno</f:facet>
+				<h:outputText value="#{estudante.turno}"
+					rendered="#{not estudante.editing}" />
+				<h:selectOneMenu value="#{estudante.turno}"
+					rendered="#{estudante.editing}">
+					<f:selectItems value="#{turno.ALL_ENUM_VALUES}" var="turnos"
+						itemValue="#{turnos}" itemLabel="#{turnos}" />
+				</h:selectOneMenu>
+			</h:column>
+			<h:column>
+				<f:facet name="header">E-mail</f:facet>
+				<h:outputText value="#{estudante.email}"
+					rendered="#{not estudante.editing}" />
+				<h:inputText value="#{estudante.email}"
+					rendered="#{estudante.editing}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header"></f:facet>
+				<h:commandLink
+					actionListener="#{dataTableTesteBean.remove(estudante)}"
+					rendered="#{not estudante.editing}">
+					<h:outputText value="Remover" />
+				</h:commandLink>
+			</h:column>
+			<h:column>
+				<f:facet name="header"></f:facet>
+				<h:commandLink
+					actionListener="#{dataTableTesteBean.edit(estudante)}"
+					rendered="#{not estudante.editing}">
+					<h:outputText value="Editar" />
+				</h:commandLink>
+			</h:column>
+		</h:dataTable>
+		<h:commandButton value="Salvar"
+			actionListener="#{dataTableTesteBean.save}" />
+		<h2>TABLE USANDO SET</h2>
+		<h:dataTable value="#{dataTableTesteBean.estudanteSet}"
+			var="estudante">
+			<h:column>
+				<f:facet name="header">Nome</f:facet>
+				<h:outputText value="#{estudante.nome}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Sobrenome</f:facet>
+				<h:outputText value="#{estudante.sobrenome}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Turno</f:facet>
+				<h:outputText value="#{estudante.turno}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">E-mail</f:facet>
+				<h:outputText value="#{estudante.email}" />
+			</h:column>
+		</h:dataTable>
+		<h2>TABLE USANDO LINKED LIST</h2>
+		<h:dataTable value="#{dataTableTesteBean.estudanteLinkedList}"
+			var="estudante">
+			<h:column>
+				<f:facet name="header">Nome</f:facet>
+				<h:outputText value="#{estudante.nome}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Sobrenome</f:facet>
+				<h:outputText value="#{estudante.sobrenome}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Turno</f:facet>
+				<h:outputText value="#{estudante.turno}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">E-mail</f:facet>
+				<h:outputText value="#{estudante.email}" />
+			</h:column>
+		</h:dataTable>
+		<h2>TABLE USANDO MAP</h2>
+		<h:dataTable value="#{dataTableTesteBean.mapEstudanteList.values()}"
+			var="estudante">
+			<h:column>
+				<f:facet name="header">Nome</f:facet>
+				<h:outputText value="#{estudante.nome}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Sobrenome</f:facet>
+				<h:outputText value="#{estudante.sobrenome}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">Turno</f:facet>
+				<h:outputText value="#{estudante.turno}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">E-mail</f:facet>
+				<h:outputText value="#{estudante.email}" />
+			</h:column>
+		</h:dataTable>
+		<h2>CHAVES DO KEYMAP</h2>
+		<h:dataTable value="#{dataTableTesteBean.mapEstudanteList.keySet()}"
+			var="string">
+			<h:column>
+				<f:facet name="header">Chaves</f:facet>
+				<h:outputText value="#{string}" />
+			</h:column>
+		</h:dataTable>
+	</h:form>
+	<!-- 	<h:form> -->
+	<!-- 		<p:dataTable value="#{dataTableTesteBean.estudanteList}" -->
+	<!-- 			var="estudante"> -->
+	<!-- 			<f:facet name="header">Estudantes</f:facet> -->
+	<!-- 			<p:column headerText="Nome"> -->
+	<!-- 				<h:outputText value="#{estudante.nome}" /> -->
+	<!-- 			</p:column> -->
+	<!-- 			<p:column headerText="Sobrenome"> -->
+	<!-- 				<h:outputText value="#{estudante.sobrenome}" /> -->
+	<!-- 			</p:column> -->
+	<!-- 			<p:column headerText="Turno"> -->
+	<!-- 				<h:outputText value="#{estudante.turno}" /> -->
+	<!-- 			</p:column> -->
+	<!-- 			<p:column headerText="E-mail"> -->
+	<!-- 				<h:outputText value="#{estudante.email}" /> -->
+	<!-- 			</p:column> -->
+
+	<!-- 		</p:dataTable> -->
+	<!-- 	</h:form> -->
+</h:body>
+</html>

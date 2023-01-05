@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+<h:head>
+	<h:body>
+		<h:form>
+		<p:messages autoUpdate="true"/>
+			<h2>Validando dados do usuário</h2>
+			<h:panelGrid columns="2">
+				<h:outputLabel value="#{testeFlowNestedBean.userName}"/>
+				<h:outputLabel value="#{testeFlowNestedBean.userLastName}"/>
+				<h:commandButton value="Validar User" action="#{testeFlowNestedBean.validarUser}"/>
+				<h:commandButton value="Voltar ao início" action="exitToInicio"/>
+			</h:panelGrid>
+		</h:form>
+	</h:body>
+</h:head>
+
+</html>

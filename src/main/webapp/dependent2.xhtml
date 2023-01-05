@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+<h:head>
+	<h:body>
+
+		<h:outputLabel value="Pegando Valor do View Bean" />
+		<br />
+		<h:outputText value="#{testeApplicationBean.categoriaList}" />
+
+		<br />
+		<h:outputText value="#{testeDependentBean.personagemSelecionado}" />
+		<!-- 		<p> -->
+		<!-- 			O conteúdo permanece, pois no @SessionScoped o bean só é reiniciado <br/> -->
+		<!-- 			quando a sessão no navegador também é reiniciada. Em outras palavras<br/> -->
+		<!-- 			quando o navegador for reiniciado ou a sessão invalidada(logout). -->
+		<!-- 		</p> -->
+	</h:body>
+</h:head>
+
+
+</html>

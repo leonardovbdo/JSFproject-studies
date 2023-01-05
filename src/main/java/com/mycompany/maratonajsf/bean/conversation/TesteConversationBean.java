@@ -35,14 +35,6 @@ public class TesteConversationBean implements Serializable{
 		}
 	}
 	
-	public boolean eTransiente() {
-		if (conversation.isTransient()) {
-			return true;
-		} else {
-			return false;
-		}
-	}
-	
 	public String endConversation() {
 		if (!conversation.isTransient()) {
 			conversation.end();

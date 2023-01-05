@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" xmlns:o="http://omnifaces.org/ui"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+<h:head>
+
+</h:head>
+
+<h:body>
+	<o:form includeRequestParams="true">
+		<p:messages autoUpdate="true" />
+		<h:panelGrid columns="1">
+			<h:inputSecret required="true"
+				value="#{comunicacaoTeste10Bean.password}" />
+
+			<h:commandButton value="Salvar"
+				actionListener="#{comunicacaoTeste10Bean.salvar}" />
+		</h:panelGrid>
+	</o:form>
+	<o:form includeRequestParams="true">
+		<h:panelGrid columns="2">
+			<ui:repeat var="estudante"
+				value="#{comunicacaoTeste10Bean.estudanteList}">
+				<h:outputText value="#{estudante.nome} " />
+				<h:commandLink value="excluir"
+					actionListener="#{comunicacaoTeste10Bean.remover(estudante)}" />
+				<br />
+			</ui:repeat>
+		</h:panelGrid>
+	</o:form>
+</h:body>
+</html>

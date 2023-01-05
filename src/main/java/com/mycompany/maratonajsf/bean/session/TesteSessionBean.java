@@ -12,17 +12,25 @@ import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Named;
 
+import com.mycompany.maratonajsf.model.Estudante;
+
 @Named
 @SessionScoped
 public class TesteSessionBean implements Serializable{
 
 	private List<String> personagens;
 	private List<String> personagemSelecionado = new ArrayList<>();
+	private Estudante estudante;
 	
 	@PostConstruct
 	public void init() {
 		System.out.println(" Entrou o PostConstruct do SessionScoped ");
 		personagens = Arrays.asList("Goku", "Vegeta", "Gohan");
+		logar();
+	}
+	
+	public void logar() {
+		estudante = new Estudante();
 	}
 	
 	public void selecionarPersonagem() {
@@ -34,6 +42,10 @@ public class TesteSessionBean implements Serializable{
 	public String logout() {
 		FacesContext.getCurrentInstance().getExternalContext().invalidateSession();
 		return "session?faces-redirect = true";
+	}
+	
+	public Estudante getEstudante() {
+		return estudante;
 	}
 	
 	public List<String> getPersonagemSelecionado() {

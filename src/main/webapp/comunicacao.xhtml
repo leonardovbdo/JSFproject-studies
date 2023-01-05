@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:of="http://omnifaces.org/functions"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+<h:head>
+
+</h:head>
+	<h:pan
+<h:body>
+	<h:form>
+		<h:panelGrid columns="1">
+			<h:outputText
+				value="#{facesContext.externalContext.getInitParameter('images.location')}" />
+			<h:commandButton value="Imprimir"
+				actionListener="#{comunicacaoTeste1Bean.imprimirAtributos}" />
+		</h:panelGrid>
+	</h:form>
+	<h:form>
+		<h:panelGrid columns="1">
+			<h:inputText value="#{comunicacaoTeste1Bean.nome}" />
+			<h:inputText value="#{comunicacaoTeste1Bean.sobrenome}" />
+			<h:button value="Salvar" outcome="comunicacao2?faces-redirect=true">
+				<f:param name="nome" value="Tamyles" />
+				<f:param name="sobrenome" value="Vilasboas" />
+			</h:button>
+			<h:link value="vai para comunicacao 2" outcome="comunicacao2">
+				<f:param name="nome" value="Tamyles" />
+				<f:param name="sobrenome" value="Vilasboas" />
+			</h:link>
+			<h:link value="vai para comunicacao 3" outcome="comunicacao3">
+				<f:param name="nome" value="Leonardo" />
+				<f:param name="sobrenome" value="Silva	" />
+				<f:param name="data" value="#{of:formatDate(comunicacaoTeste1Bean.data, 'dd/MM/yyyy')}"/>
+			</h:link>
+		</h:panelGrid>
+	</h:form>
+</h:body>
+
+
+</html>

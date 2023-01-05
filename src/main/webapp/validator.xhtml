@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" xmlns:o="http://omnifaces.org/ui"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+<h:head>
+
+</h:head>
+
+<h:body>
+	<p:messages autoUpdate="true" />
+	<h:outputText value="Email" />
+	<h:form>
+		<h:inputText value="#{validatorSessionBean.estudante.email}"
+			validator="#{validators.validateDuplicatedEmail}" size="50" />
+		<h:commandButton value="Salvar" action="#{validatorSessionBean.save}" />
+	</h:form>
+</h:body>
+</html>

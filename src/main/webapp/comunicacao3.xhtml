@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" 
+	xmlns:o="http://omnifaces.org/ui"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+<h:head>
+
+</h:head>
+<f:metadata>
+	<f:viewParam name="nome" value="#{comunicacaoTeste3Bean.nome}" />
+	<f:viewParam name="sobrenome"
+		value="#{comunicacaoTeste3Bean.sobrenome}" />
+	<f:viewParam name="data" value="#{comunicacaoTeste3Bean.data}">
+		<f:convertDateTime pattern="dd/MM/yyyy"/>
+	</f:viewParam>
+
+	<f:event listener="#{comunicacaoTeste3Bean.init}" type="preRenderView" />
+	<!-- 	Não consigo usar na versão do eclipse que eu estou realizando este estudo... -->
+	<!-- 	<f:viewAction action="#{comunicacaoTeste3Bean.init}" /> -->
+</f:metadata>
+<h:body>
+	<o:form includeRequestParams="true">
+		<p:messages autoUpdate="true" />
+		<h:panelGrid columns="1">
+			<h:inputText value="#{comunicacaoTeste3Bean.nome}" required="true"
+				requiredMessage="O nome é obrigatório.">
+				<f:ajax event="blur" />
+			</h:inputText>
+			<h:inputText value="#{comunicacaoTeste3Bean.sobrenome}" />
+			<h:outputLabel value="#{comunicacaoTeste3Bean.data}" />
+			<h:commandButton value="Resultado"
+				action="#{comunicacaoTeste3Bean.save()}" />
+		</h:panelGrid>
+	</o:form>
+</h:body>
+</html>

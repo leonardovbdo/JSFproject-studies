@@ -5,9 +5,10 @@
 	version="2.3">
 
 	<application>
-		<locale-config>
-			<default-locale>pt_BR</default-locale>
-		</locale-config>
+		<resource-bundle>
+			<base-name>messages</base-name>
+			<var>m</var>
+		</resource-bundle>
 	</application>
 
 </faces-config>

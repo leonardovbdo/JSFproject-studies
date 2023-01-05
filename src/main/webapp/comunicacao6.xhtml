@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui" xmlns:o="http://omnifaces.org/ui"
+	xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+
+<h:head>
+
+</h:head>
+
+<h:body>
+	<o:form includeRequestParams="true">
+		<p:messages autoUpdate="true" />
+		<h:panelGrid columns="1">
+			<ui:repeat var="estudante" varStatus="status" value="#{comunicacaoTeste6Bean.estudanteList}">
+				<h:outputText value="#{status.index}"/>&#160;
+				<h:outputText value="#{estudante.nome}"/>&#160;
+				<h:outputText value="#{estudante.sobrenome}"/>&#160;
+				<h:outputText value="#{estudante.nota1}"/>&#160;
+				<h:commandLink value="editar" action="#{comunicacaoTeste6Bean.editar(status.index)}"/>&#160;
+				<br/>
+			</ui:repeat>
+		</h:panelGrid>
+	</o:form>
+</h:body>
+</html>
